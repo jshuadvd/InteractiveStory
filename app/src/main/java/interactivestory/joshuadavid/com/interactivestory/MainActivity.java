@@ -26,16 +26,17 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 String name = mNameField.getText().toString();
-                StartStory();
+                StartStory(name);
 
                 //Toast.makeText(MainActivity.this, name, Toast.LENGTH_LONG).show();
             }
         });
     }
 
-    private void StartStory() {
+    private void StartStory(String name) {
 
         Intent intent = new Intent(this, StoryActivity.class);
+        intent.putExtra("name", name);
         startActivity(intent);
 
     }
