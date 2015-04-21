@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -28,7 +27,6 @@ public class MainActivity extends ActionBarActivity {
                 String name = mNameField.getText().toString();
                 StartStory(name);
 
-                //Toast.makeText(MainActivity.this, name, Toast.LENGTH_LONG).show();
             }
         });
     }
