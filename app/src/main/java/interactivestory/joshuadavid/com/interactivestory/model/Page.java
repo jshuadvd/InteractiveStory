@@ -14,36 +14,35 @@ public class Page {
 
 
     // Getters & Setters
-
-    public String getmText() {
-        return mText;
-    }
-
-    public void setmText(String mText) {
-        this.mText = mText;
-    }
-
-    public Choice getmChoice1() {
-        return mChoice1;
-    }
-
-    public void setmChoice1(Choice mChoice1) {
-        this.mChoice1 = mChoice1;
-    }
-
-    public Choice getmChoice2() {
-        return mChoice2;
-    }
-
-    public void setmChoice2(Choice mChoice2) {
-        this.mChoice2 = mChoice2;
-    }
-
     public int getImageId() {
         return mImageId;
     }
 
     public void setImageId(int id) {
         mImageId = id;
+    }
+
+    public String getText() {
+        return mText;
+    }
+
+    public void setText(String text) {
+        mText = text;
+    }
+
+    public Choice getChoice1() {
+        return mChoice1;
+    }
+
+    public void setChoice1(Choice choice1) {
+        mChoice1 = choice1;
+    }
+
+    public Choice getChoice2() {
+        return mChoice2;
+    }
+
+    public void setChoice2(Choice choice2) {
+        mChoice2 = choice2;
     }
 }
