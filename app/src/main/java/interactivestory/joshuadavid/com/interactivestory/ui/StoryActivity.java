@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import interactivestory.joshuadavid.com.interactivestory.R;
+import interactivestory.joshuadavid.com.interactivestory.model.Page;
 
 
 public class StoryActivity extends ActionBarActivity {
@@ -26,6 +27,7 @@ public class StoryActivity extends ActionBarActivity {
 
         }
         Log.d(TAG, name);
+
     }
 
 
