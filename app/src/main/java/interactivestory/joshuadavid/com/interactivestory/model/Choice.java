@@ -8,7 +8,12 @@ public class Choice {
     private String mText;
     private int mNextPage;
 
-    public
+    public Choice(String text, int nextPage) {
+
+        mText = text;
+        mNextPage = nextPage;
+
+    }
 
     public String getText() {
         return mText;
