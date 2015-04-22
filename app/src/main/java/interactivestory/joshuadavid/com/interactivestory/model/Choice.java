@@ -8,6 +8,8 @@ public class Choice {
     private String mText;
     private int mNextPage;
 
+    public
+
     public String getText() {
         return mText;
     }
