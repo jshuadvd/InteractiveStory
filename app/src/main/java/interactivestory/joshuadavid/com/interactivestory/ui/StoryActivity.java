@@ -1,15 +1,28 @@
 package interactivestory.joshuadavid.com.interactivestory.ui;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import interactivestory.joshuadavid.com.interactivestory.R;
 import interactivestory.joshuadavid.com.interactivestory.model.Page;
+import interactivestory.joshuadavid.com.interactivestory.model.Story;
 
 
 public class StoryActivity extends ActionBarActivity {
+
+    private Story mStory = new Story();
+    private ImageView mImageView;
+    private TextView mTextView;
+    private Button mChoice1;
+    private Button mChoice2;
 
     public static final String TAG = StoryActivity.class.getSimpleName();
 
@@ -25,8 +38,28 @@ public class StoryActivity extends ActionBarActivity {
 
            name = "Friend";
 
+            mImageView = (ImageView) findViewById(R.id.storyImageView);
+            mTextView = (TextView) findViewById(R.id.storyTextView);
+            mChoice1 = (Button) findViewById(R.id.choiceButton1);
+            mChoice2 = (Button) findViewById(R.id.choiceButton2);
+
         }
         Log.d(TAG, name);
+
+    }
+
+    private void loadPage() {
+
+        Page page = mStory.getPage(0);
+
+
+        Drawable drawable = getResources().getDrawable()page.getImageId();
+        mImageView.setImageDrawable();
+
+        mTextView.setText(page.getText());
+
+        mChoice1.setText(page.getChoice1().getText());
+        mChoice2.setText(page.getChoice2().getText());
 
     }
 
