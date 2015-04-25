@@ -47,6 +47,7 @@ public class StoryActivity extends ActionBarActivity {
             loadPage();
 
         }
+
         Log.d(TAG, mName);
 
     }
@@ -56,8 +57,7 @@ public class StoryActivity extends ActionBarActivity {
         Page page = mStory.getPage(0);
 
 
-        Drawable drawable;
-        drawable = getResources().getDrawable(page.getImageId());
+        Drawable drawable = getResources().getDrawable(page.getImageId());
         mImageView.setImageDrawable(drawable);
 
 
