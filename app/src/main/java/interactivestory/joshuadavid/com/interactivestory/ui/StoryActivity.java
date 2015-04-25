@@ -23,6 +23,7 @@ public class StoryActivity extends ActionBarActivity {
     private TextView mTextView;
     private Button mChoice1;
     private Button mChoice2;
+    private String mName;
 
     public static final String TAG = StoryActivity.class.getSimpleName();
 
@@ -32,11 +33,11 @@ public class StoryActivity extends ActionBarActivity {
         setContentView(R.layout.activity_story);
 
         Intent intent = getIntent();
-        String name = intent.getStringExtra(getString(R.string.key_name));
+        mName = intent.getStringExtra(getString(R.string.key_name));
 
-        if (name == null) {
+        if (mName == null) {
 
-           name = "Friend";
+            mName = "Friend";
 
             mImageView = (ImageView) findViewById(R.id.storyImageView);
             mTextView = (TextView) findViewById(R.id.storyTextView);
@@ -44,7 +45,7 @@ public class StoryActivity extends ActionBarActivity {
             mChoice2 = (Button) findViewById(R.id.choiceButton2);
 
         }
-        Log.d(TAG, name);
+        Log.d(TAG, mName);
 
     }
 
@@ -53,10 +54,13 @@ public class StoryActivity extends ActionBarActivity {
         Page page = mStory.getPage(0);
 
 
-        Drawable drawable = getResources().getDrawable()page.getImageId();
-        mImageView.setImageDrawable();
+        Drawable drawable = getResources().getDrawable(page.getImageId());
+        mImageView.setImageDrawable(drawable);
 
-        mTextView.setText(page.getText());
+
+        String pageText = page.getText();
+        pageText = String.format(pageText, mName);
+        mTextView.setText(pageText);
 
         mChoice1.setText(page.getChoice1().getText());
         mChoice2.setText(page.getChoice2().getText());
