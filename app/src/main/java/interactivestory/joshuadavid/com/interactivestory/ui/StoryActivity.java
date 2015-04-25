@@ -44,6 +44,8 @@ public class StoryActivity extends ActionBarActivity {
             mChoice1 = (Button) findViewById(R.id.choiceButton1);
             mChoice2 = (Button) findViewById(R.id.choiceButton2);
 
+            loadPage();
+
         }
         Log.d(TAG, mName);
 
@@ -54,11 +56,13 @@ public class StoryActivity extends ActionBarActivity {
         Page page = mStory.getPage(0);
 
 
-        Drawable drawable = getResources().getDrawable(page.getImageId());
+        Drawable drawable;
+        drawable = getResources().getDrawable(page.getImageId());
         mImageView.setImageDrawable(drawable);
 
 
         String pageText = page.getText();
+        // Add the name, if placeholder included
         pageText = String.format(pageText, mName);
         mTextView.setText(pageText);
 
