@@ -2,6 +2,7 @@ package interactivestory.joshuadavid.com.interactivestory.ui;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -33,7 +34,7 @@ public class StoryActivity extends ActionBarActivity {
         setContentView(R.layout.activity_story);
 
         Intent intent = getIntent();
-        mName = intent.getStringExtra(getString(R.string.key_name));
+        mName = intent.getStringExtra("name");
 
         if (mName == null) {
 
@@ -53,16 +54,17 @@ public class StoryActivity extends ActionBarActivity {
     private void loadPage() {
         Page page = mStory.getPage(0);
 
-
-        Drawable drawable = getResources().getDrawable(page.getImageId());
+        Drawable drawable = getResources().getDrawable(page.getImageId(),null);
+        // Drawable drawable = ResourcesCompat.getDrawable(getResources(), page.getImageId(), null);
+        // Drawable drawable = getResources().getDrawable(page.getImageId());
         mImageView.setImageDrawable(drawable);
 
 
         String pageText = page.getText();
         // Add the name, if placeholder included. Won't add if no placeholder.
         pageText = String.format(pageText, mName);
-        mTextView.setText(page.getText());
-
+        mTextView.setText(pageText);
+        
         mChoice1.setText(page.getChoice1().getText());
         mChoice2.setText(page.getChoice2().getText());
 
