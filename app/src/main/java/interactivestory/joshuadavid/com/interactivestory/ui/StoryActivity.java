@@ -62,7 +62,7 @@ public class StoryActivity extends ActionBarActivity {
 
 
         String pageText = page.getText();
-        // Add the name, if placeholder included
+        // Add the name, if placeholder included. Won't add if no placeholder.
         pageText = String.format(pageText, mName);
         mTextView.setText(pageText);
 
