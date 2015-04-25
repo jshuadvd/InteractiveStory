@@ -66,31 +66,46 @@ public class StoryActivity extends ActionBarActivity {
         pageText = String.format(pageText, mName);
         mTextView.setText(pageText);
 
-        mChoice1.setText(mCurrentPage.getChoice1().getText());
-        mChoice2.setText(mCurrentPage.getChoice2().getText());
+        if (mCurrentPage.isFinal()) {
 
-        // New OnClick listeners for accessing the target of the choice that was clicked and using that target to reload the mCurrentPage
-        mChoice1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                // Index of new mCurrentPage I want to load
-                int nextPage = mCurrentPage.getChoice1().getNextPage();
-                loadPage(nextPage);
-            }
-        });
-
+        mChoice1.setVisibility(View.INVISIBLE);
+        mChoice2.setText("PLAY AGAIN");
         mChoice2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                // Index of new mCurrentPage I want to load
-                int nextPage = mCurrentPage.getChoice2().getNextPage();
-                loadPage(nextPage);
+                finish();
             }
         });
 
+        }
+        else {
+            mChoice1.setText(mCurrentPage.getChoice1().getText());
+            mChoice2.setText(mCurrentPage.getChoice2().getText());
+
+            // New OnClick listeners for accessing the target of the choice that was clicked and using that target to reload the mCurrentPage
+            mChoice1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    // Index of new mCurrentPage I want to load
+                    int nextPage = mCurrentPage.getChoice1().getNextPage();
+                    loadPage(nextPage);
+                }
+            });
+
+            mChoice2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    // Index of new mCurrentPage I want to load
+                    int nextPage = mCurrentPage.getChoice2().getNextPage();
+                    loadPage(nextPage);
+                }
+            });
+
+        }
     }
+
 
 
 
