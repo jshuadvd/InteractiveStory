@@ -38,22 +38,19 @@ public class StoryActivity extends ActionBarActivity {
         if (mName == null) {
 
             mName = "Friend";
-
-            mImageView = (ImageView) findViewById(R.id.storyImageView);
-            mTextView = (TextView) findViewById(R.id.storyTextView);
-            mChoice1 = (Button) findViewById(R.id.choiceButton1);
-            mChoice2 = (Button) findViewById(R.id.choiceButton2);
-
-            loadPage();
-
         }
-
         Log.d(TAG, mName);
+
+        mImageView = (ImageView) findViewById(R.id.storyImageView);
+        mTextView = (TextView) findViewById(R.id.storyTextView);
+        mChoice1 = (Button) findViewById(R.id.choiceButton1);
+        mChoice2 = (Button) findViewById(R.id.choiceButton2);
+
+        loadPage();
 
     }
 
     private void loadPage() {
-
         Page page = mStory.getPage(0);
 
 
@@ -64,7 +61,7 @@ public class StoryActivity extends ActionBarActivity {
         String pageText = page.getText();
         // Add the name, if placeholder included. Won't add if no placeholder.
         pageText = String.format(pageText, mName);
-        mTextView.setText(pageText);
+        mTextView.setText(page.getText());
 
         mChoice1.setText(page.getChoice1().getText());
         mChoice2.setText(page.getChoice2().getText());
