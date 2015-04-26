@@ -39,6 +39,8 @@ public class MainActivity extends ActionBarActivity {
         startActivity(intent);
     }
 
+
+    // An option to remove the name from the screen when the app restarts
     /*
     @Override
     private void onResume() {
